@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: deno-ingress
+spec:
+  rules:
+    - host: deno-todo-app.charmesenegalaise.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: deno-service
+                port:
+                  number: 80
